@@ -141,14 +141,14 @@ export const getActiveRouteName = (navigationState: any): any => {
 
 export const AppContainer = createAppContainer(AppNavigator);
 
-// export const AppContainerWithScreenTracking = () => (
-//   <AppContainer
-//     onNavigationStateChange={(prevState, currentState) => {
-//       const currentRouteName = getActiveRouteName(currentState);
-//       const previousRouteName = getActiveRouteName(prevState);
-//       if (previousRouteName !== currentRouteName) {
-//         console.log(`Entering ${currentRouteName}`);
-//       }
-//     }}
-//   />
-// );
+export const AppContainerWithScreenTracking = () => (
+  <AppContainer
+    onNavigationStateChange={(prevState, currentState) => {
+      const currentRouteName = getActiveRouteName(currentState);
+      const previousRouteName = getActiveRouteName(prevState);
+      if (previousRouteName !== currentRouteName) {
+        console.log(`Entering ${currentRouteName}`);
+      }
+    }}
+  />
+);
