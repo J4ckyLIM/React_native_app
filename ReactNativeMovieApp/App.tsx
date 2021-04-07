@@ -15,7 +15,6 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
