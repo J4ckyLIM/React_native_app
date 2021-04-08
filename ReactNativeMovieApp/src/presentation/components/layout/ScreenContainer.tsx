@@ -37,9 +37,9 @@ const HeaderContainer = styled.View`
 const HeaderFirstLine = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   padding-vertical: ${({ theme }) => theme.spacing.s}px;
-  padding-horizontal: ${({ theme }) => theme.spacing.s}px;
+  padding-horizontal: ${({ theme }) => theme.spacing.m}px;
   width: 100%;
 `;
 
@@ -125,7 +125,6 @@ const ScreenContainerComponent = ({
                 color={backArrowColor}
                 arrowOrientation={backArrowOrientation}
                 backgroundColor={backArrowBackgroundColor}
-                rounded={true}
               />
             </FloatingBackButton>
           )}
