@@ -9,12 +9,12 @@ import {
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Animated, Easing } from 'react-native';
+import { Card } from 'react-native-paper';
 
 import { DetailsScreen } from './presentation/screens/Details';
 import { HomeScreen } from './presentation/screens/Home';
 import { ProfileScreen } from './presentation/screens/Profile';
 import { InAppRoute, Routes } from './routes';
-// import { Icon } from 'react-native-vector-icons/Icon';
 
 const tabStackOptions = {
   headerBackTitleVisible: false,
@@ -23,12 +23,12 @@ const tabStackOptions = {
   transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
 } as NavigationStackRouterConfig;
 
-const getIconNameFromRoute = (routeName: InAppRoute) => {
+const getIconSourceURIFromRoute = (routeName: InAppRoute) => {
   switch (routeName) {
     case InAppRoute.Home:
-      return 'auto-fix';
+      return 'https://img.flaticon.com/icons/png/512/25/25694.png?size=630x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF';
     case InAppRoute.Profile:
-      return 'cash';
+      return 'https://image.freepik.com/icones-gratuites/info-logo-dans-cercle_318-947.jpg';
   }
 };
 
@@ -84,9 +84,15 @@ const InAppBottomTabNavigation = createBottomTabNavigator(
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
-        const iconName = getIconNameFromRoute(routeName as InAppRoute);
+        const iconURI = getIconSourceURIFromRoute(routeName as InAppRoute);
 
-        // return <Icon name={iconName} size={25} color={tintColor} />;
+        return (
+          <Card.Cover
+            source={{ uri: iconURI }}
+            style={{ width: 30, height: 30 }}
+            resizeMode="contain"
+          />
+        );
       },
     }),
   },
