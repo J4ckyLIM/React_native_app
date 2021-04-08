@@ -15,4 +15,6 @@ export interface Movie {
   voteCount: number;
 
   posterPath: string;
+
+  id: number;
 }
