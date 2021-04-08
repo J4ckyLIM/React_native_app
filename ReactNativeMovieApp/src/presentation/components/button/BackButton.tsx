@@ -1,7 +1,8 @@
-import * as React from "react";
+import React from "react";
 import { styled } from "../../theme";
-import ArrowLeftWhite from '../../resources/svg_icons/arrowLeftWhite.svg';
 import ArrowLeftBlack from '../../resources/svg_icons/arrowLeftBlack.svg';
+import ArrowLeftWhite from '../../resources/svg_icons/arrowLeftWhite.svg';
+import { SvgUri } from 'react-native-svg';
 
 export enum ArrowDirection {
   left = 'left',
@@ -39,7 +40,6 @@ export const BackButton = ({
   arrowOrientation = ArrowDirection.left,
   color,
   backgroundColor = 'transparent',
-  rounded = false,
 }: {
   onPress: () => void;
   top?: number;
@@ -47,7 +47,6 @@ export const BackButton = ({
   arrowOrientation?: ArrowDirection;
   color?: ArrowColor;
   backgroundColor?: string;
-  rounded?: boolean;
 }) => (
   <Container top={top} left={left}>
     <Touchable
@@ -55,10 +54,12 @@ export const BackButton = ({
       backgroundColor={backgroundColor}
     >
       {arrowOrientation === ArrowDirection.left &&
-        color === ArrowColor.black && <ArrowLeftBlack />}
+        color === ArrowColor.black &&
+        <ArrowLeftBlack />}
 
       {arrowOrientation === ArrowDirection.left &&
-        color === ArrowColor.white && <ArrowLeftWhite />}
+        color === ArrowColor.white && 
+        <ArrowLeftWhite />}
     </Touchable>
   </Container>
 );
