@@ -66,10 +66,15 @@ const DateLabel = styled.Text`
   font-size: ${({ theme }) => theme.fontSizes.normal}px;
 `;
 
-export const MovieItemList = ({ movie }: { movie: Movie }) => {
-  console.log(movie.posterPath);
+export const MovieItemList = ({
+  movie,
+  onPress,
+}: {
+  movie: Movie;
+  onPress: (movie: Movie) => void;
+}) => {
   return (
-    <Container>
+    <Container onPress={() => onPress(movie)}>
       <Thumbnail>
         <Card.Cover
           source={{ uri: movie.posterPath }}
