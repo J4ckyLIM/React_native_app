@@ -27,7 +27,7 @@ export const getMoviesByTitle = async ({
 
         voteAverage: movie.vote_average,
 
-        voteCount: movie.count,
+        voteCount: movie.vote_count,
 
         posterPath: API_IMAGE_URL + movie.poster_path,
 
@@ -59,7 +59,7 @@ export const getTopRatedMovie = async (): Promise<Movie[]> => {
 
         voteAverage: movie.vote_average,
 
-        voteCount: movie.count,
+        voteCount: movie.vote_count,
 
         posterPath: API_IMAGE_URL + movie.poster_path,
 
@@ -80,7 +80,7 @@ export const getMovieVideo = async (id: number): Promise<string> => {
     const videoResponse = await axios.get(
       `${API_BASE_URL}/movie/${id}/videos?api_key=${API_TOKEN}`,
     );
-    let defaultVideoId = 'SUXWAEX2jlg';
+    let defaultVideoId = 'gAbi2_n8_Mw';
     if (videoResponse.data.results && videoResponse.data.results.length > 0) {
       defaultVideoId = videoResponse.data.results[0].key;
     }
