@@ -31,6 +31,8 @@ export const getMoviesByTitle = async ({
 
         posterPath: API_IMAGE_URL + movie.poster_path,
 
+        backPostPath: API_IMAGE_URL + movie.backdrop_path,
+
         id: movie.id,
       };
     });
@@ -61,10 +63,28 @@ export const getTopRatedMovie = async (): Promise<Movie[]> => {
 
         posterPath: API_IMAGE_URL + movie.poster_path,
 
+        backPostPath: API_IMAGE_URL + movie.backdrop_path,
+
         id: movie.id,
       };
     });
     return movies;
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
+  }
+};
+
+export const getMovieVideo = async (id: number): Promise<string> => {
+  try {
+    const videoResponse = await axios.get(
+      `${API_BASE_URL}/movie/${id}/videos?api_key=${API_TOKEN}`,
+    );
+    let defaultVideoId = 'SUXWAEX2jlg';
+    if (videoResponse.data.results && videoResponse.data.results.length > 0) {
+      defaultVideoId = videoResponse.data.results[0].key;
+    }
+    return defaultVideoId;
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
