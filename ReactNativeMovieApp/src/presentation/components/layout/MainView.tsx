@@ -1,4 +1,4 @@
-import { css, styled } from "../../theme";
+import { css, styled } from '../../theme';
 
 export const MainView = styled.View<{
   justifyContent?: 'center' | 'flex-start' | 'flex-end';
@@ -8,7 +8,7 @@ export const MainView = styled.View<{
   flex: 1;
 
   background-color: ${({ theme, backgroundColor }) =>
-    backgroundColor ?? theme.colors.backgroundColor};
+    backgroundColor ?? theme.colors.inAppDarkScreenBackgroundColor};
   color: ${({ theme }) => theme.colors.defaultTextColor};
   flex-direction: column;
 
