@@ -16,5 +16,7 @@ export interface Movie {
 
   posterPath: string;
 
+  backPosterPath: string;
+
   id: number;
 }
