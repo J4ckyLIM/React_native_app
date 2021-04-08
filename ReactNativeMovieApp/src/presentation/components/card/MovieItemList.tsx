@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'react-native-paper';
 
 import { Movie } from '../../../domain/Movie';
+import { formatText } from '../../../utils/text';
 import { styled } from '../../theme';
 
 const Container = styled.TouchableOpacity`
@@ -42,7 +43,7 @@ const VoteContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.borderColor};
+  background-color: ${({ theme }) => theme.colors.inputPlaceholder};
   margin-top: ${({ theme }) => theme.spacing.sm}px;
   margin-right: ${({ theme }) => theme.spacing.xs}px;
 `;
@@ -83,7 +84,9 @@ export const MovieItemList = ({
       </Thumbnail>
       <InfoContainer>
         <DescriptionContainer>
-          <TitleLabel>{movie.title}</TitleLabel>
+          <TitleLabel>
+            {formatText({ text: movie.title, maximumSize: 35 })}
+          </TitleLabel>
           <DateLabel>({movie.releaseDate})</DateLabel>
         </DescriptionContainer>
         <VoteContainer>
