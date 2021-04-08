@@ -10,12 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/toolbar-android": "^0.1.0-rc.2",
     "axios": "^0.21.1",
     "decod": "^6.1.6",
     "react": "17.0.1",
     "react-native": "^0.64.0",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
+    "react-native-paper": "^4.7.2",
     "react-native-reanimated": "^1.3.0",
     "react-native-screens": "^2.0.0-alpha.3",
     "react-native-scroll-into-view": "^1.0.3",
