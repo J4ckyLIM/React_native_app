@@ -1,11 +1,17 @@
-import React, { ReactElement, useCallback } from "react";
-import { ViewProps } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { wrapScrollView } from "react-native-scroll-into-view";
-import { NavigationInjectedProps, SafeAreaView, withNavigation } from "react-navigation";
-import { styled } from "../../theme";
-import { ArrowDirection, ArrowColor, BackButton } from "../button/BackButton";
-import { MainView } from "./MainView";
+import React, { ReactElement, useCallback } from 'react';
+import { ViewProps } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { wrapScrollView } from 'react-native-scroll-into-view';
+import {
+  NavigationInjectedProps,
+  SafeAreaView,
+  withNavigation,
+} from 'react-navigation';
+
+import { styled } from '../../theme';
+import { ArrowDirection, ArrowColor, BackButton } from '../button/BackButton';
+
+import { MainView } from './MainView';
 
 const ScreenContainerScrollView = styled(
   wrapScrollView(KeyboardAwareScrollView),
@@ -13,7 +19,7 @@ const ScreenContainerScrollView = styled(
   flex-grow: 1;
   flex: 1;
   background-color: ${({ theme }) =>
-    theme.colors.inAppScreenBackroundColor};
+    theme.colors.inAppDarkScreenBackgroundColor};
 `;
 
 const FloatingBackButton = styled.TouchableOpacity`
@@ -109,15 +115,13 @@ const ScreenContainerComponent = ({
         bounces={true}
         contentContainerStyle={{
           flexGrow: 1,
-        }}
-      >
+        }}>
         <SafeAreaView
           style={{ flex: 1 }}
           forceInset={{
             top: props.overStatusBar ? 'never' : 'always',
             bottom: 'never',
-          }}
-        >
+          }}>
           {displayFloatingBackArrow && (
             <FloatingBackButton>
               <BackButton
@@ -129,7 +133,6 @@ const ScreenContainerComponent = ({
             </FloatingBackButton>
           )}
 
-          
           <HeaderContainer>
             <HeaderFirstLine>
               <HeaderLeft>
@@ -144,9 +147,7 @@ const ScreenContainerComponent = ({
                     />
                   )}
                 {showHeaderTitle && (
-                  <HeaderTitle
-                    headerTitleColor={headerTitleColor}
-                  >
+                  <HeaderTitle headerTitleColor={headerTitleColor}>
                     {headerTitle}
                   </HeaderTitle>
                 )}
@@ -157,13 +158,11 @@ const ScreenContainerComponent = ({
             )}
           </HeaderContainer>
 
-          <MainView {...props.mainViewProps}>
-            {props.children}
-          </MainView>
+          <MainView {...props.mainViewProps}>{props.children}</MainView>
         </SafeAreaView>
       </ScreenContainerScrollView>
     </>
   );
-}
+};
 
 export const ScreenContainer = withNavigation(ScreenContainerComponent);

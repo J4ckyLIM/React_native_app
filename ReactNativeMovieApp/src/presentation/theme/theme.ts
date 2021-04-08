@@ -1,4 +1,4 @@
-import { normalizeSize } from "../../utils/sizes";
+import { normalizeSize } from '../../utils/sizes';
 
 import { spacing } from './spacing';
 
@@ -17,12 +17,14 @@ export const theme = {
     backgroundColor: '#F2F4F4',
     blockBackgroundColor: '#FFFFFF',
     inAppScreenBackroundColor: '#F2F4F4',
+    inAppDarkScreenBackgroundColor: 'rgb(21, 21, 21)',
     defaultTextColor: '#0d0e10',
     lightColor: '#eaf6ff',
     disabledColor: '#D7D8DA',
     borderColor: '#d8d8d8',
     pagingColor: 'black',
     shadowColor: 'rgb(23, 25, 29)',
+    mainBackgroundColor: 'rgb(15, 15, 10)',
     inputBorderColor: '#DFE2E7',
     inputPlaceholder: '#c9c9c9',
     transparentButtonColor: '#ffffff00',
@@ -31,7 +33,7 @@ export const theme = {
   fontSizes: {
     small: normalizeSize(11),
     normal: normalizeSize(14),
-    large: normalizeSize(18),
+    large: normalizeSize(17),
     big: normalizeSize(24),
   } as { [key: string]: number },
   spacing,
