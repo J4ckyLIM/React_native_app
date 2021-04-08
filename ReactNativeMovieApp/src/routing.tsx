@@ -1,12 +1,19 @@
-import { createAppContainer, NavigationStackRouterConfig } from 'react-navigation';
-import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
+import {
+  createAppContainer,
+  NavigationStackRouterConfig,
+} from 'react-navigation';
+import {
+  createStackNavigator,
+  StackViewTransitionConfigs,
+} from 'react-navigation-stack';
+import React from 'react';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Animated, Easing } from 'react-native';
+
 import { DetailsScreen } from './presentation/screens/Details';
 import { HomeScreen } from './presentation/screens/Home';
 import { ProfileScreen } from './presentation/screens/Profile';
 import { InAppRoute, Routes } from './routes';
-import { Animated, Easing } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import React from 'react';
 // import { Icon } from 'react-native-vector-icons/Icon';
 
 const tabStackOptions = {
@@ -14,7 +21,7 @@ const tabStackOptions = {
   headerMode: 'none',
   mode: 'card',
   transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
-} as NavigationStackRouterConfig
+} as NavigationStackRouterConfig;
 
 const getIconNameFromRoute = (routeName: InAppRoute) => {
   switch (routeName) {
@@ -40,9 +47,10 @@ const HomeStack = createStackNavigator(
         timing: Animated.timing,
         easing: Easing.step0,
       },
-      screenInterpolator: () => {}
-    })
-  }
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      screenInterpolator: () => {},
+    }),
+  },
 );
 
 const ProfileStack = createStackNavigator(
@@ -59,11 +67,11 @@ const ProfileStack = createStackNavigator(
         timing: Animated.timing,
         easing: Easing.step0,
       },
-      screenInterpolator: () => {}
-    })
-  }
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      screenInterpolator: () => {},
+    }),
+  },
 );
-
 
 const InAppBottomTabNavigation = createBottomTabNavigator(
   {
@@ -72,10 +80,7 @@ const InAppBottomTabNavigation = createBottomTabNavigator(
   },
   {
     initialRouteName: InAppRoute.Home,
-    order: [
-      InAppRoute.Home,
-      InAppRoute.Profile,
-    ],
+    order: [InAppRoute.Home, InAppRoute.Profile],
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
@@ -84,7 +89,7 @@ const InAppBottomTabNavigation = createBottomTabNavigator(
         // return <Icon name={iconName} size={25} color={tintColor} />;
       },
     }),
-  }
+  },
 );
 
 const InAppStackNavigator = createStackNavigator(
