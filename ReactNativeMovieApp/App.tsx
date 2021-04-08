@@ -1,8 +1,9 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import {  AppContainerWithScreenTracking } from './src/routing';
+import { ThemeProvider } from './src/services/ThemeProvider';
 
 export const App = () => {
 
@@ -13,7 +14,14 @@ export const App = () => {
   
   return (
     <SafeAreaView style={backgroundStyle}>
-      <AppContainerWithScreenTracking />
+      <ThemeProvider>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        <AppContainerWithScreenTracking />
+      </ThemeProvider>
     </SafeAreaView>
   );
 };
