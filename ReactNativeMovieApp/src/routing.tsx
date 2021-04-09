@@ -158,6 +158,7 @@ export const AppContainerWithScreenTracking = () => (
       const currentRouteName = getActiveRouteName(currentState);
       const previousRouteName = getActiveRouteName(prevState);
       if (previousRouteName !== currentRouteName) {
+        // eslint-disable-next-line no-console
         console.log(`Entering ${currentRouteName}`);
       }
     }}

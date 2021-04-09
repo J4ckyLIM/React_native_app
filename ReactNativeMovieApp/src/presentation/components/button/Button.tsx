@@ -1,14 +1,19 @@
-import { GestureResponderEvent, TextStyle, TouchableOpacityProps } from "react-native";
-import { css, fontFamilies, styled } from "../../theme";
+import {
+  GestureResponderEvent,
+  TextStyle,
+  TouchableOpacityProps,
+} from 'react-native';
 import React from 'react';
 
+import { css, fontFamilies, styled } from '../../theme';
+
 interface MainButtonProps extends TouchableOpacityProps {
-  label: string,
-  width?: string | number,
-  isUpperCase?: boolean,
-  textAlign?: TextStyle['textAlign'],
-  fontFamily?: fontFamilies,
-  maxWidth?: number,
+  label: string;
+  width?: string | number;
+  isUpperCase?: boolean;
+  textAlign?: TextStyle['textAlign'];
+  fontFamily?: fontFamilies;
+  maxWidth?: number;
 }
 export const MainButton = ({
   label,
@@ -24,13 +29,11 @@ export const MainButton = ({
     maxWidth={maxWidth}
     onPress={(event: GestureResponderEvent) => {
       if (props.onPress) props.onPress(event);
-    }}
-  >
+    }}>
     <ButtonLabel
       upperCase={isUpperCase}
       textAlign={textAlign}
-      fontFamily={fontFamily}
-    >
+      fontFamily={fontFamily}>
       {label}
     </ButtonLabel>
   </ButtonContainer>
@@ -40,14 +43,10 @@ export const ButtonContainer = styled.TouchableOpacity<{
   width?: string | number;
   maxWidth?: number;
 }>`
-  background-color: ${({ theme }) =>
-    theme.colors.disabledColor };
-  border-radius: ${({ theme }) =>
-    theme.spacing.sm };
-  height: ${({ theme }) => 
-    theme.spacing.xl };
-  padding-horizontal: ${({ theme }) =>
-    theme.spacing.l};
+  background-color: ${({ theme }) => theme.colors.disabledColor};
+  border-radius: ${({ theme }) => theme.spacing.sm};
+  height: ${({ theme }) => theme.spacing.xl};
+  padding-horizontal: ${({ theme }) => theme.spacing.l};
   justify-content: center;
   ${({ width }) =>
     width &&
@@ -67,10 +66,9 @@ export const ButtonLabel = styled.Text<{
   textAlign?: string;
   fontFamily?: fontFamilies;
 }>`
-  color: ${({ theme }) =>
-    theme.colors.blockBackgroundColor };
+  color: ${({ theme }) => theme.colors.blockBackgroundColor};
   text-align: ${({ textAlign }) => textAlign};
-  font-size: ${({ theme }) => theme.fontSizes.large };
+  font-size: ${({ theme }) => theme.fontSizes.large};
   font-family: ${({ theme, fontFamily }) => theme.fontFamily[fontFamily]};
   ${({ upperCase }) =>
     upperCase &&

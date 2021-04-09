@@ -20,19 +20,12 @@ export const getMoviesByTitle = async ({
       return {
         title: movie.title,
         popularity: movie.popularity,
-
         releaseDate: movie.release_date,
-
         description: movie.overview,
-
         voteAverage: movie.vote_average,
-
         voteCount: movie.vote_count,
-
         posterPath: API_IMAGE_URL + movie.poster_path,
-
         backPostPath: API_IMAGE_URL + movie.backdrop_path,
-
         id: movie.id,
       };
     });
@@ -52,19 +45,12 @@ export const getTopRatedMovie = async (): Promise<Movie[]> => {
       return {
         title: movie.title,
         popularity: movie.popularity,
-
         releaseDate: movie.release_date,
-
         description: movie.overview,
-
         voteAverage: movie.vote_average,
-
         voteCount: movie.vote_count,
-
         posterPath: API_IMAGE_URL + movie.poster_path,
-
         backPostPath: API_IMAGE_URL + movie.backdrop_path,
-
         id: movie.id,
       };
     });
