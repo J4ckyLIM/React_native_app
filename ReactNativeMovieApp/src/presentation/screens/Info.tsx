@@ -3,6 +3,6 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Block } from '../components/layout/Block';
 
-export const ProfileScreen = ({ navigation }: NavigationInjectedProps) => {
+export const InfoScreen = ({ navigation }: NavigationInjectedProps) => {
   return <Block />;
 };

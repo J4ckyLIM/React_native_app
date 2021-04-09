@@ -2,12 +2,12 @@ export enum Routes {
   App = 'App',
   Home = 'Home',
   Details = 'Details',
-  Profile = 'Profile',
+  Info = 'Info',
   InAppTab = 'InAppTab',
   InApp = 'InApp',
 }
 
 export enum InAppRoute {
   Home = 'Home',
-  Profile = 'Profil',
+  Info = 'Info',
 }

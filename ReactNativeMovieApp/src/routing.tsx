@@ -13,7 +13,7 @@ import { Card } from 'react-native-paper';
 
 import { DetailsScreen } from './presentation/screens/Details';
 import { HomeScreen } from './presentation/screens/Home';
-import { ProfileScreen } from './presentation/screens/Profile';
+import { InfoScreen } from './presentation/screens/Info';
 import { InAppRoute, Routes } from './routes';
 
 const tabStackOptions = {
@@ -27,7 +27,7 @@ const getIconSourceURIFromRoute = (routeName: InAppRoute) => {
   switch (routeName) {
     case InAppRoute.Home:
       return 'https://img.flaticon.com/icons/png/512/25/25694.png?size=630x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF';
-    case InAppRoute.Profile:
+    case InAppRoute.Info:
       return 'https://image.freepik.com/icones-gratuites/info-logo-dans-cercle_318-947.jpg';
   }
 };
@@ -53,12 +53,12 @@ const HomeStack = createStackNavigator(
   },
 );
 
-const ProfileStack = createStackNavigator(
+const InfoStack = createStackNavigator(
   {
-    [Routes.Profile]: ProfileScreen,
+    [Routes.Info]: InfoScreen,
   },
   {
-    initialRouteName: Routes.Profile,
+    initialRouteName: Routes.Info,
     headerBackTitleVisible: false,
     headerMode: 'none',
     transitionConfig: () => ({
@@ -76,11 +76,11 @@ const ProfileStack = createStackNavigator(
 const InAppBottomTabNavigation = createBottomTabNavigator(
   {
     [InAppRoute.Home]: HomeStack,
-    [InAppRoute.Profile]: ProfileStack,
+    [InAppRoute.Info]: InfoStack,
   },
   {
     initialRouteName: InAppRoute.Home,
-    order: [InAppRoute.Home, InAppRoute.Profile],
+    order: [InAppRoute.Home, InAppRoute.Info],
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
