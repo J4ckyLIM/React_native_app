@@ -51,7 +51,7 @@ export const HomeScreen = ({ navigation }: NavigationInjectedProps) => {
       }}
       headerTitle={'Home'}
       showHeaderTitle={true}
-      headerTitleColor={'#FFFFFF'}>
+      headerTitleColor={theme.colors.titleColor}>
       <SearchBar
         onChangeText={value => {
           searchMovieByTitle(value);

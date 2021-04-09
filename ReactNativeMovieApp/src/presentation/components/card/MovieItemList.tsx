@@ -4,6 +4,7 @@ import { Card } from 'react-native-paper';
 import { Movie } from '../../../domain/Movie';
 import { formatText } from '../../../utils/text';
 import { styled } from '../../theme';
+import { SecondaryLabel, TitleLabel } from '../label/Labels';
 
 const Container = styled.TouchableOpacity`
   width: 100%;
@@ -48,25 +49,6 @@ const VoteContainer = styled.View`
   margin-right: ${({ theme }) => theme.spacing.xs}px;
 `;
 
-const VoteLabel = styled.Text`
-  color: #ffffff;
-  text-align: center;
-  font-family: ${({ theme }) => theme.fontFamily.heavy};
-  font-size: ${({ theme }) => theme.fontSizes.large}px;
-`;
-
-const TitleLabel = styled.Text`
-  color: #ffffff;
-  font-family: ${({ theme }) => theme.fontFamily.heavy};
-  font-size: ${({ theme }) => theme.fontSizes.large}px;
-`;
-
-const DateLabel = styled.Text`
-  color: ${({ theme }) => theme.colors.inputPlaceholder};
-  font-family: ${({ theme }) => theme.fontFamily.medium};
-  font-size: ${({ theme }) => theme.fontSizes.normal}px;
-`;
-
 export const MovieItemList = ({
   movie,
   onPress,
@@ -87,10 +69,10 @@ export const MovieItemList = ({
           <TitleLabel>
             {formatText({ text: movie.title, maximumSize: 35 })}
           </TitleLabel>
-          <DateLabel>({movie.releaseDate})</DateLabel>
+          <SecondaryLabel>({movie.releaseDate})</SecondaryLabel>
         </DescriptionContainer>
         <VoteContainer>
-          <VoteLabel>{movie.voteAverage}</VoteLabel>
+          <TitleLabel isCenter={true}>{movie.voteAverage}</TitleLabel>
         </VoteContainer>
       </InfoContainer>
     </Container>

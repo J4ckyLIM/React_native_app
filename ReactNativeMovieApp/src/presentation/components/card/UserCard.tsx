@@ -3,6 +3,7 @@ import { Avatar, Icon } from 'react-native-elements';
 
 import { User } from '../../../domain/User';
 import { styled } from '../../theme';
+import { SecondaryLabel, TitleLabel } from '../label/Labels';
 import { Block } from '../layout/Block';
 
 const Container = styled.View`
@@ -15,18 +16,6 @@ const ColumnContainer = styled.View`
   flex-direction: column;
   flex: 1;
   padding-horizontal: ${({ theme }) => theme.spacing.m}px;
-`;
-
-const TitleLabel = styled.Text`
-  color: ${({ theme }) => theme.colors.titleColor};
-  font-size: ${({ theme }) => theme.fontSizes.large};
-  font-family: ${({ theme }) => theme.fontFamily.heavy};
-`;
-
-const SecondaryLabel = styled.Text`
-  color: ${({ theme }) => theme.colors.titleColor};
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  font-family: ${({ theme }) => theme.fontFamily.medium};
 `;
 
 const MediaContainer = styled.View`

@@ -43,7 +43,7 @@ export const InfoScreen = ({ navigation }: NavigationInjectedProps) => {
       }}
       headerTitle={'Informations'}
       showHeaderTitle={true}
-      headerTitleColor={'#FFFFFF'}>
+      headerTitleColor={theme.colors.titleColor}>
       {userList &&
         userList.map(user => <UserCard user={user} key={user.firstName} />)}
     </ScreenContainer>

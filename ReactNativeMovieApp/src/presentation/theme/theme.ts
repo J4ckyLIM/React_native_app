@@ -29,6 +29,8 @@ export const theme = {
     inputPlaceholder: '#c9c9c9',
     transparentButtonColor: '#ffffff00',
     dangerColor: '#CC4545',
+    titleColor: '#FFFFFF',
+    secondaryTextColor: '#c9c9c9',
   },
   fontSizes: {
     small: normalizeSize(11),

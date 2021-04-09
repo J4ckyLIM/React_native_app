@@ -8,6 +8,7 @@ import { styled, theme } from '../theme';
 import { ArrowColor } from '../components/button/BackButton';
 import { Movie } from '../../domain/Movie';
 import { formatText } from '../../utils/text';
+import { DescriptionText, SecondaryLabel } from '../components/label/Labels';
 
 import { getMovieVideo } from './hooks/getMovieList';
 
@@ -40,30 +41,12 @@ const DescriptionContainer = styled.View`
   padding-horizontal: ${theme.spacing.sm}px;
 `;
 
-const DescriptionText = styled.Text`
-  color: ${theme.colors.inputPlaceholder};
-  font-family: ${theme.fontFamily.regular};
-  font-size: ${theme.fontSizes.normal}px;
-`;
-
 const SecondaryInfoContainer = styled.View`
   width: 100%;
   flex: 1;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-`;
-
-const Label = styled.Text`
-  color: ${theme.colors.inputPlaceholder};
-  font-family: ${theme.fontFamily.regular};
-  font-size: ${theme.fontSizes.large}px;
-`;
-
-const VoteCountLabel = styled.Text`
-  color: ${theme.colors.inputPlaceholder};
-  font-family: ${theme.fontFamily.regular};
-  font-size: ${theme.fontSizes.normal}px;
 `;
 
 const TitleLabel = styled.Text`
@@ -106,7 +89,7 @@ export const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
       showHeaderTitle={true}
       displayGoBackArrow={true}
       backArrowColor={ArrowColor.white}
-      headerTitleColor={'#FFFFFF'}>
+      headerTitleColor={theme.colors.titleColor}>
       <Container>
         <TrailerVideoContainer>
           <YoutubePlayer
@@ -137,11 +120,11 @@ export const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
         <DescriptionContainer>
           <DescriptionText>{movie.description}</DescriptionText>
           <SecondaryInfoContainer>
-            <Label>Date: {movie.releaseDate}</Label>
-            <Label>
+            <SecondaryLabel>Date: {movie.releaseDate}</SecondaryLabel>
+            <SecondaryLabel>
               {movie.voteAverage}{' '}
-              <VoteCountLabel>({movie.voteCount} votes)</VoteCountLabel>
-            </Label>
+              <SecondaryLabel>({movie.voteCount} votes)</SecondaryLabel>
+            </SecondaryLabel>
           </SecondaryInfoContainer>
         </DescriptionContainer>
       </Container>
