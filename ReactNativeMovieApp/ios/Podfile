@@ -12,6 +12,7 @@ target 'ReactNativeMovieApp' do
     :hermes_enabled => false
   )
 
+
   target 'ReactNativeMovieAppTests' do
     inherit! :complete
     # Pods for testing
