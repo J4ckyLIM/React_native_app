@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Alert } from 'react-native';
 
 import { Movie } from '../../../domain/Movie';
 
@@ -33,6 +34,7 @@ export const getMoviesByTitle = async ({
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
+    Alert.alert('Error encountered', 'Error while trying to load movies');
   }
 };
 
@@ -58,6 +60,7 @@ export const getTopRatedMovie = async (): Promise<Movie[]> => {
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
+    Alert.alert('Error encountered', 'Error while trying to load movies');
   }
 };
 
@@ -74,5 +77,6 @@ export const getMovieVideo = async (id: number): Promise<string> => {
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
+    Alert.alert('Error encountered', 'Error while trying to load movies');
   }
 };
