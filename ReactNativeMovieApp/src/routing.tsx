@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Animated, Easing } from 'react-native';
-import { Card } from 'react-native-paper';
+import { Icon } from 'react-native-elements';
 
 import { DetailsScreen } from './presentation/screens/Details';
 import { HomeScreen } from './presentation/screens/Home';
@@ -23,12 +23,12 @@ const tabStackOptions = {
   transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
 } as NavigationStackRouterConfig;
 
-const getIconSourceURIFromRoute = (routeName: InAppRoute) => {
+const getIconFromRoute = (routeName: InAppRoute) => {
   switch (routeName) {
     case InAppRoute.Home:
-      return 'https://img.flaticon.com/icons/png/512/25/25694.png?size=630x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF';
+      return 'home';
     case InAppRoute.Info:
-      return 'https://image.freepik.com/icones-gratuites/info-logo-dans-cercle_318-947.jpg';
+      return 'info';
   }
 };
 
@@ -81,18 +81,17 @@ const InAppBottomTabNavigation = createBottomTabNavigator(
   {
     initialRouteName: InAppRoute.Home,
     order: [InAppRoute.Home, InAppRoute.Info],
+    tabBarOptions: {
+      activeBackgroundColor: 'white',
+      tabStyle: {
+        backgroundColor: 'black',
+      },
+    },
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }) => {
+      tabBarIcon: () => {
         const { routeName } = navigation.state;
-        const iconURI = getIconSourceURIFromRoute(routeName as InAppRoute);
-
-        return (
-          <Card.Cover
-            source={{ uri: iconURI }}
-            style={{ width: 30, height: 30 }}
-            resizeMode="contain"
-          />
-        );
+        const iconName = getIconFromRoute(routeName as InAppRoute);
+        return <Icon name={iconName} color="#00aced" />;
       },
     }),
   },
