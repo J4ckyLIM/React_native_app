@@ -5,6 +5,7 @@ import { Movie } from '../../../domain/Movie';
 import { formatText } from '../../../utils/text';
 import { styled } from '../../theme';
 import { SecondaryLabel, TitleLabel } from '../label/Labels';
+import { ColumnContainer, RowContainer } from '../layout/Containers';
 
 const Container = styled.TouchableOpacity`
   width: 100%;
@@ -27,15 +28,6 @@ const InfoContainer = styled.View`
   width: 100%;
   flex: 1;
   flex-direction: row;
-`;
-
-const DescriptionContainer = styled.View`
-  width: 72%;
-  height: 100%;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-left: 7px;
 `;
 
 const VoteContainer = styled.View`
@@ -64,17 +56,17 @@ export const MovieItemList = ({
           style={{ height: '100%' }}
         />
       </Thumbnail>
-      <InfoContainer>
-        <DescriptionContainer>
+      <RowContainer isCentered={false} spaceBetween={false}>
+        <ColumnContainer>
           <TitleLabel>
             {formatText({ text: movie.title, maximumSize: 35 })}
           </TitleLabel>
           <SecondaryLabel>({movie.releaseDate})</SecondaryLabel>
-        </DescriptionContainer>
+        </ColumnContainer>
         <VoteContainer>
           <TitleLabel isCenter={true}>{movie.voteAverage}</TitleLabel>
         </VoteContainer>
-      </InfoContainer>
+      </RowContainer>
     </Container>
   );
 };

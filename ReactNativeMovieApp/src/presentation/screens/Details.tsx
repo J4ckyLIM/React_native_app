@@ -9,6 +9,7 @@ import { ArrowColor } from '../components/button/BackButton';
 import { Movie } from '../../domain/Movie';
 import { formatText } from '../../utils/text';
 import { DescriptionText, SecondaryLabel } from '../components/label/Labels';
+import { ColumnContainer, RowContainer } from '../components/layout/Containers';
 
 import { getMovieVideo } from './hooks/getMovieList';
 
@@ -30,23 +31,6 @@ const TrailerVideoContainer = styled.View`
   align-items: center;
   flex: 1;
   margin-top: ${theme.spacing.xs}px;
-`;
-
-const DescriptionContainer = styled.View`
-  width: 100%;
-  height: 60%;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding-horizontal: ${theme.spacing.sm}px;
-`;
-
-const SecondaryInfoContainer = styled.View`
-  width: 100%;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
 `;
 
 const TitleLabel = styled.Text`
@@ -117,16 +101,16 @@ export const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
             </>
           )}
         </TrailerVideoContainer>
-        <DescriptionContainer>
+        <ColumnContainer isCentered={true}>
           <DescriptionText>{movie.description}</DescriptionText>
-          <SecondaryInfoContainer>
+          <RowContainer>
             <SecondaryLabel>Date: {movie.releaseDate}</SecondaryLabel>
             <SecondaryLabel>
               {movie.voteAverage}{' '}
               <SecondaryLabel>({movie.voteCount} votes)</SecondaryLabel>
             </SecondaryLabel>
-          </SecondaryInfoContainer>
-        </DescriptionContainer>
+          </RowContainer>
+        </ColumnContainer>
       </Container>
     </ScreenContainer>
   );

@@ -5,25 +5,12 @@ import { User } from '../../../domain/User';
 import { styled } from '../../theme';
 import { SecondaryLabel, TitleLabel } from '../label/Labels';
 import { Block } from '../layout/Block';
+import { ColumnContainer, RowContainer } from '../layout/Containers';
 
 const Container = styled.View`
   width: 100%;
   flex-direction: row;
   align-items: center;
-`;
-
-const ColumnContainer = styled.View`
-  flex-direction: column;
-  flex: 1;
-  padding-horizontal: ${({ theme }) => theme.spacing.m}px;
-`;
-
-const MediaContainer = styled.View`
-  flex: 1;
-  justify-content: space-around;
-  padding-vertical: ${({ theme }) => theme.spacing.s};
-  align-items: center;
-  flex-direction: row;
 `;
 
 export const UserCard = ({ user }: { user: User }) => {
@@ -44,12 +31,12 @@ export const UserCard = ({ user }: { user: User }) => {
         <ColumnContainer>
           <TitleLabel>{fullName}</TitleLabel>
           <SecondaryLabel>{user.role}</SecondaryLabel>
-          <MediaContainer>
+          <RowContainer>
             <Icon name="facebook-square" color="#00aced" type="antdesign" />
             <Icon name="twitter" color="#00aced" type="antdesign" />
             <Icon name="linkedin-square" color="#00aced" type="antdesign" />
             <Icon name="github" color="#00aced" type="antdesign" />
-          </MediaContainer>
+          </RowContainer>
         </ColumnContainer>
       </Container>
     </Block>
