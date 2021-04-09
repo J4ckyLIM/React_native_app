@@ -1,11 +1,5 @@
-import {
-  createAppContainer,
-  NavigationStackRouterConfig,
-} from 'react-navigation';
-import {
-  createStackNavigator,
-  StackViewTransitionConfigs,
-} from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Animated, Easing } from 'react-native';
@@ -15,13 +9,6 @@ import { DetailsScreen } from './presentation/screens/Details';
 import { HomeScreen } from './presentation/screens/Home';
 import { InfoScreen } from './presentation/screens/Info';
 import { InAppRoute, Routes } from './routes';
-
-const tabStackOptions = {
-  headerBackTitleVisible: false,
-  headerMode: 'none',
-  mode: 'card',
-  transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
-} as NavigationStackRouterConfig;
 
 const getIconFromRoute = (routeName: InAppRoute) => {
   switch (routeName) {
