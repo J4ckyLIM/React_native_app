@@ -12,23 +12,15 @@ export enum fontFamilies {
 
 export const theme = {
   colors: {
-    darkTitles: 'rgb(44,49,67)',
-    subtitlesH1: 'rgb(44,49,67)',
     backgroundColor: '#F2F4F4',
     blockBackgroundColor: '#FFFFFF',
     inAppScreenBackroundColor: '#F2F4F4',
     inAppDarkScreenBackgroundColor: 'rgb(21, 21, 21)',
     defaultTextColor: '#0d0e10',
     lightColor: '#eaf6ff',
-    disabledColor: '#D7D8DA',
-    borderColor: '#d8d8d8',
     pagingColor: 'black',
     shadowColor: 'rgb(23, 25, 29)',
     mainBackgroundColor: 'rgb(15, 15, 10)',
-    inputBorderColor: '#DFE2E7',
-    inputPlaceholder: '#c9c9c9',
-    transparentButtonColor: '#ffffff00',
-    dangerColor: '#CC4545',
     titleColor: '#FFFFFF',
     secondaryTextColor: '#c9c9c9',
   },

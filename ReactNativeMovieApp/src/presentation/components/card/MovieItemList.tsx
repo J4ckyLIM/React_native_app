@@ -30,7 +30,7 @@ const VoteContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.inputPlaceholder};
+  background-color: ${({ theme }) => theme.colors.secondaryTextColor};
   margin-top: ${({ theme }) => theme.spacing.sm}px;
   margin-right: ${({ theme }) => theme.spacing.xs}px;
 `;
