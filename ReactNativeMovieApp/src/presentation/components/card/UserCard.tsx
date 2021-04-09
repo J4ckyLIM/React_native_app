@@ -6,6 +6,7 @@ import { styled } from '../../theme';
 import { SecondaryLabel, TitleLabel } from '../label/Labels';
 import { Block } from '../layout/Block';
 import { ColumnContainer, RowContainer } from '../layout/Containers';
+import { VerticalSpacer } from '../layout/Spacer';
 
 const Container = styled.View`
   width: 100%;
@@ -30,7 +31,9 @@ export const UserCard = ({ user }: { user: User }) => {
         />
         <ColumnContainer>
           <TitleLabel>{fullName}</TitleLabel>
+          <VerticalSpacer spacing={3} />
           <SecondaryLabel>{user.role}</SecondaryLabel>
+          <VerticalSpacer spacing={7} />
           <RowContainer>
             <Icon name="facebook-square" color="#00aced" type="antdesign" />
             <Icon name="twitter" color="#00aced" type="antdesign" />

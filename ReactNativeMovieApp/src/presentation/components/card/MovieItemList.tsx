@@ -6,6 +6,7 @@ import { formatText } from '../../../utils/text';
 import { styled } from '../../theme';
 import { SecondaryLabel, TitleLabel } from '../label/Labels';
 import { ColumnContainer, RowContainer } from '../layout/Containers';
+import { VerticalSpacer } from '../layout/Spacer';
 
 const Container = styled.TouchableOpacity`
   width: 100%;
@@ -21,13 +22,6 @@ const Container = styled.TouchableOpacity`
 const Thumbnail = styled.View`
   width: 80px;
   height: 95px;
-`;
-
-const InfoContainer = styled.View`
-  height: 100%;
-  width: 100%;
-  flex: 1;
-  flex-direction: row;
 `;
 
 const VoteContainer = styled.View`
@@ -61,6 +55,7 @@ export const MovieItemList = ({
           <TitleLabel>
             {formatText({ text: movie.title, maximumSize: 35 })}
           </TitleLabel>
+          <VerticalSpacer spacing={15} />
           <SecondaryLabel>({movie.releaseDate})</SecondaryLabel>
         </ColumnContainer>
         <VoteContainer>
